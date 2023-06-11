@@ -27,7 +27,7 @@ const remove = catchError(async(req, res) => {
 
 const update = catchError(async(req, res) => {
     const { id } = req.params;
-    const updateDirector = await Director.update(req.body, {wehere: {id}, returning: true});
+    const updateDirector = await Director.update(req.body, {where: {id}, returning: true});
     if(updateDirector[0] === 0) return res.sendStatus(404).json("Director not found");
     return res.json(updateDirector[1][0]);
 })

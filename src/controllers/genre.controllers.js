@@ -27,7 +27,7 @@ const remove = catchError(async(req, res) => {
 
 const update = catchError(async(req, res) => {
     const { id } = req.params;
-    const updateGenre = await Genre.update(req.body, {wehere: {id}, returning: true});
+    const updateGenre = await Genre.update(req.body, {where: {id}, returning: true});
     if(updateGenre[0] === 0) return res.sendStatus(404).json("Genre not found");
     return res.json(updateGenre[1][0]);
 })

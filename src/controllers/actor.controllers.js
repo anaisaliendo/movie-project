@@ -27,7 +27,7 @@ const remove = catchError(async(req, res) => {
 
 const update = catchError(async(req, res) => {
     const { id } = req.params;
-    const updateActor = await Actor.update(req.body, {wehere: {id}, returning: true});
+    const updateActor = await Actor.update(req.body, { where: {id}, returning: true });
     if(updateActor[0] === 0) return res.sendStatus(404).json("Actor not found");
     return res.json(updateActor[1][0]);
 })
