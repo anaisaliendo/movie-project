@@ -10,6 +10,9 @@ router.use('/movies', routerMovie)
 router.use('/genres', routerGenre)
 router.use('/actors', routerActor)
 router.use('/directors', routerDiretor)
+router.use('/:id/genres', routerMovie)
+router.use('/:id/actors', routerMovie)
+router.use('/:id/directors', routerMovie)
 
 
 module.exports = router;
